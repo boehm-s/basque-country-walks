@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Basque Country Walks
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", rel="stylesheet")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+    link(href="/css/index.css", rel="stylesheet")
+
+  body
+    #canvasContainer
+    #countdown
+    #filename= fileinfo
+    #info-btn INFO
+    a#download(download= fileinfo) Download
+    #info-container
+      #info
+        p
+          a#info-download(download= fileinfo) Download
+          | &nbsp;this open source artwork for free
+          br.ol
+          | and slowly trigger its digital extinction.
+          br
+          br.nl
+          | Submit a digitally non-existent personal artwork
+          br.ol
+          | to be exhibited for 7 days, giving all rights
+          br.ol
+          | for everyone to download, use and modify.
+          br
+          br.nl
+          a#mail(href="mailto:luce@maisonnue.com?subject=Sending%20my%20artwork%20to%20MaisonNue&body=Your%20Name%20%3A%20%0AArtwork%20 %0D%0A Title%20%3A") Send us an email
+          br
+          br.nl
+          | Concept & art direction by MaisonNue. Code by Seed-Up
+    //- include includes/header.pug
+    //- include includes/image.pug
+
+  script(src="/js/index.js")
