@@ -3,36 +3,77 @@ html
   head
     title Basque Country Walks
     link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", rel="stylesheet")
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
-    link(href="/css/index.css", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    link(href="/css/style.css", rel="stylesheet")
 
   body
-    #canvasContainer
-    #countdown
-    #filename= fileinfo
-    #info-btn INFO
-    a#download(download= fileinfo) Download
-    #info-container
-      #info
-        p
-          a#info-download(download= fileinfo) Download
-          | &nbsp;this open source artwork for free
-          br.ol
-          | and slowly trigger its digital extinction.
+    include includes/header.pug
+    #index-banner.parallax-container
+      .section.no-pad-bot
+        .container
           br
-          br.nl
-          | Submit a digitally non-existent personal artwork
-          br.ol
-          | to be exhibited for 7 days, giving all rights
-          br.ol
-          | for everyone to download, use and modify.
           br
-          br.nl
-          a#mail(href="mailto:luce@maisonnue.com?subject=Sending%20my%20artwork%20to%20MaisonNue&body=Your%20Name%20%3A%20%0AArtwork%20 %0D%0A Title%20%3A") Send us an email
+          h1.header.center.teal-text.text-lighten-2 Hiking in the basque country
+          .row.center
+            h5.header.col.s12.light PLOP PLOP PLOP
+          .row.center
+            a#download-button.btn-large.waves-effect.waves-light.teal.lighten-1(href='http://materializecss.com/getting-started.html') Get Started
           br
-          br.nl
-          | Concept & art direction by MaisonNue. Code by Seed-Up
-    //- include includes/header.pug
-    //- include includes/image.pug
+          br
+      .parallax
+        img(src='/img/background1.jpg', alt='Unsplashed background img 1')
+    .container
+      .section
+        // Icon Section
+        .row
+          .col.s12.m4
+            .icon-block
+              h2.center.brown-text
+                i.material-icons flash_on
+              h5.center Speeds up development
+              p.light
+                | We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.
+          .col.s12.m4
+            .icon-block
+              h2.center.brown-text
+                i.material-icons group
+              h5.center User Experience Focused
+              p.light
+                | By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.
+          .col.s12.m4
+            .icon-block
+              h2.center.brown-text
+                i.material-icons settings
+              h5.center Easy to work with
+              p.light
+                | We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.
+    .parallax-container.valign-wrapper
+      .section.no-pad-bot
+        .container
+          .row.center
+            h5.header.col.s12.light.quote  "...is  not just  a  trip -  it is an experience...meticulous and easy to follow guide... a unique, comfortable, worry-free package"
+              .author Adrian and David, San Francisco
+      .parallax
+        img(src='/img/background2.jpg', alt='Unsplashed background img 2')
+    .container
+      .section
+        .row
+          .col.s12.center
+            h3
+              i.mdi-content-send.brown-text
+            h4 Contact Us
+            p.left-align.light
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+    .parallax-container.valign-wrapper
+      .section.no-pad-bot
+        ontainer
+            ow.center
+              .header.col.s12.light A modern responsive front-end framework based on Material Design
+        arallax
+      g(src='/img/background3.jpg', alt='Unsplashed background img 3')
+  include includes/footer.pug
 
-  script(src="/js/index.js")
+
+  script(src="/js/init.js")
