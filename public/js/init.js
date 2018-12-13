@@ -1,8 +1,18 @@
 (function($){
-  $(function(){
+    $(function(){
 
-    $('.sidenav').sidenav();
-    $('.parallax').parallax();
+	$('.sidenav').sidenav();
+	$('.parallax').parallax();
 
-  }); // end of document ready
+	$(document).ready(function(){
+	    $('.carousel').carousel({
+		indicators: true,
+		fullWidth: true
+	    });
+	});
+
+	Array.from(document.getElementsByClassName('carousel-item')).forEach((item, i) => {
+	    item.style.width = "100%";
+	});
+    }); // end of document ready
 })(jQuery); // end of jQuery name space

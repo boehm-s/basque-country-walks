@@ -6,6 +6,16 @@
  * Made By MaterializeCSS.com
  */
 
+html, body {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+
 nav ul a,
 nav .brand-logo {
     color: #444;
@@ -40,9 +50,71 @@ p {
     font-style: italic;
     margin-top: 20px;
 }
+
+
+#title {
+    margin-bottom: 70px;
+    text-align: justify;
+}
+
+#intro {
+    line-height: 38px;
+    font-size: 22px;
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+#intro > p {
+    margin: 0;
+}
+
+#book-link-intro {
+    color: #FFF;
+    font-weight: 400;
+}
+
+#moreinfo {
+    margin-bottom: 50px;
+}
+
+.panels p.light {
+    margin-top: 25px;
+    text-align: justify;
+}
+
+.read-more {
+    font-weight: 600;;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+
+.carousel-item {
+    text-align: center;
+}
+
+#footer {
+    padding-bottom: 20px;
+}
+
+
+@media (max-width: 1260px) {
+    .container {
+	width: 85%;
+    }
+}
+
+@media (max-width: 800px) {
+    #panels-container {
+	width: 100%;
+    }
+}
+
 @media only screen and (max-width : 992px) {
     .parallax-container .section {
-	position: absolute;
+	/* position: absolute; */
 	top: 40%;
     }
     #index-banner .section {
