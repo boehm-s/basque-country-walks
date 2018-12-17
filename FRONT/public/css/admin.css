@@ -1,0 +1,68 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+
+#list-walks {
+    margin-top: 30px;
+}
+
+
+@media (max-width: 1260px) {
+    .container {
+	width: 85%;
+    }
+}
+
+@media (max-width: 800px) {
+    #panels-container {
+	width: 100%;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+	/* position: absolute; */
+	top: 40%;
+    }
+    #index-banner .section {
+	top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+	top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+}
