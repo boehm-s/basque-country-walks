@@ -13,6 +13,7 @@ const walkSchema = mongoose.Schema({
     difficulty: Number,
     pictures : [{
         type: String,
+	unique: true
     }],
 });
 

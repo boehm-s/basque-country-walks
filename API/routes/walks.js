@@ -12,5 +12,11 @@ walksRouter.route('/:id')
     .put(walksCtrl.updateById)
     .delete(walksCtrl.deleteById);
 
+walksRouter.route('/add-pictures/:id')
+    .post(walksCtrl.preStorePictures, walksCtrl.storePictures, walksCtrl.postStorePictures);
+
+walksRouter.route('/del-pictures/:id')
+    .put(walksCtrl.delPictures);
+
 export {walksRouter};
 export default walksRouter;

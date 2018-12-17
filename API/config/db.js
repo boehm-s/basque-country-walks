@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 const debug = _debug('mongoose');
 const error = _debug('mongoose:error');
-const dbURI = 'mongodb://mongodb:27017';
+const dbURI = 'mongodb://localhost:27017/basque-country-walks';
 
 mongoose.connect(dbURI, {
     useNewUrlParser: true

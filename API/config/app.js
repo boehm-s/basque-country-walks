@@ -13,7 +13,9 @@ const app	 = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser({limit: '50mb'}));
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
