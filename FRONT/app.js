@@ -15,6 +15,17 @@ app.get('/',        (req, res) => {
     res.render('index', {});
 });
 
+app.get('/admin',        (req, res) => {
+    res.render('admin', {});
+});
+
+app.get('/admin/list-walks', (req, res) => {
+    res.render('admin', {});
+});
+
+app.get('/admin/add-walk', (req, res) => {
+    res.render('admin-add-walk', {});
+});
 
 server.listen(port, () => {
     console.log(`started on port ${port}`);
