@@ -22,26 +22,45 @@ p {
 
 
 /*-------------------------------------------------------------------------------*/
-
-#list-walks {
-    margin-top: 30px;
+.relative {
+    position: relative;
 }
 
-
-.icon-details-container {
-    display: flex;
+.absolute {
+    position: absolute;
 }
 
-.walk-mini-detail {
-    display: inline-flex;
-    font-size: 18px;
-    margin-left: 10px;
-    padding-right: 10px;
-    border-right: 1px solid rgba(0,0,0,0.2);
+.input-field {
+    margin-bottom: 20px;
 }
 
-.walk-mini-detail > .text-icon {
-    margin-left: 5px;
+.preview-img-container {
+    transition: .4s;
+}
+.preview-img-container:hover img {
+    filter: grayscale(100%);
+    filter: blur(5px);
+    transition: .4s;
+}
+
+.preview-img-container:hover .del-preview-img {
+    opacity: 1;
+}
+
+.del-preview-img {
+    opacity: 0;
+    top: 72px;
+    left: calc(50% - 28px);
+    transition: .4s
+}
+
+#add-walk > h1 {
+    margin-bottom: 70px;
+}
+
+#submit {
+    margin-top: 50px;
+    width: 100%;
 }
 
 @media (max-width: 1260px) {

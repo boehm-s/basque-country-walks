@@ -21,6 +21,7 @@ const storePictures = upload.array('walkImages');
 
 const create     = async (req, res, next) => {
     try {
+	console.log(req.body);
 	const _walk = new Walk(req.body);
 	var walk = await _walk.save();
     } catch (e) {

@@ -6,6 +6,11 @@ const walkSchema = mongoose.Schema({
         required: true,
 	unique: true
     },
+    prices: {
+	from: Number,
+	to: Number,
+	detail: String
+    },
     summary: String,
     description: String,
     days: Number,

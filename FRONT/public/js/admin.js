@@ -15,22 +15,29 @@ const walkCardHTML = walk => `
               <img src="${API_URL}/${walk.pictures[0] ? walk.pictures[0] : 'no-image.png'}">
               <span class="card-title">${walk.name}</span>
             </div>
-            <div class="card-content">
-               <div class="walk-mini-detail"> ${walk.days} <i class="material-icons">wb_sunny</i> </div>
-               <div class="walk-mini-detail"> ${walk.nights} <i class="material-icons">brightness_3</i> </div>
-               <div class="walk-mini-detail"> ${walk.difficulty} / 5 <i class="material-icons">directions_walk</i> </div>
+            <div class="card-content icon-details-container">
+               <div class="walk-mini-detail">  <i class="material-icons">brightness_low</i> <span class="text-icon"> ${walk.days} </span> </div>
+               <div class="walk-mini-detail">  <i class="material-icons">brightness_3</i> <span class="text-icon"> ${walk.nights} </span> </div>
+               <div class="walk-mini-detail">  <i class="material-icons">directions_walk</i> <span class="text-icon"> ${walk.difficulty} / 5 </span> </div>
 
             </div>
             <div class="card-content">
               <p>${walk.description}</p>
             </div>
             <div class="card-action">
-              <a href="/admin/update/${walk.name}"> EDIT </a>
-              <a href="/admin/delete/${walk.name}" class="red-text"> DELETE </a>
+              <a href="/admin/update/${walk._id}"> EDIT </a>
+              <a href="#" onclick="deleteWalk(this)" data-id="${walk._id}" class="red-text"> DELETE </a>
             </div>
           </div>
         </div>
 `;
+
+const deleteWalk = function(e) {
+    console.log({e, a: this});
+    fetch(`${API_URL}/walks/${e.dataset.id}`, {
+	method: "DELETE",
+    }).then(o => o.json()).then(console.log);
+};
 
 document.addEventListener('DOMContentLoaded', e => {
     const container = document.getElementById('list-walks');
