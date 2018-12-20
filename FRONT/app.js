@@ -34,6 +34,11 @@ app.get('/admin/add-walk', (req, res) => {
     res.render('admin-add-walk', {});
 });
 
+app.get('/admin/edit-walk/:id', (req, res) => {
+    res.render('admin-edit-walk', {id: req.params.id});
+});
+
+
 server.listen(port, () => {
     console.log(`started on port ${port}`);
 });

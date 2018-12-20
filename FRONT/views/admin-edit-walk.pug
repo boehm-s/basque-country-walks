@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    title Basque Country Walks - ADMIN AREA
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", rel="stylesheet")
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    link(href="/css/edit-walk.css", rel="stylesheet")
+
+  body
+    include includes/admin-header.pug
+    section.container#edit-walk
+      h1 Edit a Walk
+      form.col.s12
+        .row
+          .input-field.col.s6
+            input#walk-title.validate(placeholder='Walk Title', type='text')
+            label(for='walk-title') Walk Title
+          .input-field.col.s6
+            input#walk-summary.validate(placeholder='Walk Summary', type='text')
+            label(for='walk-summary') Walk Summary
+          .input-field.col.s12
+            textarea#walk-description.materialize-textarea
+            label(for='walk-description') Walk description
+
+          .input-field.col.s4
+            input#walk-days.validate(placeholder='Number of days', type='number')
+            label(for='walk-days') Number of days
+          .input-field.col.s4
+            input#walk-nights.validate(placeholder='Number of nights', type='number')
+            label(for='walk-nights') Number of nights
+          .input-field.col.s4
+            input#walk-difficulty.validate(placeholder='Difficulty (/5)', type='number', min='1', max='5')
+            label(for='walk-difficulty') Difficulty (/5)
+
+          .input-field.col.s4
+            input#walk-price-from.validate(placeholder='Walk Summary', type='number')
+            label(for='walk-price-from') Minimum price
+          .input-field.col.s4
+            input#walk-price-to.validate(placeholder='Walk Summary', type='number')
+            label(for='walk-price-to') Maximum price
+          .input-field.col.s4
+            textarea#walk-price-detail.materialize-textarea
+            label(for='walk-price-detail') Pricing rules (little text)
+
+        .row
+          label Upload walks picture
+          .file-field.input-field
+            .btn
+              span Browse
+              input#upload-images(type='file', multiple='', accept='image/*')
+            .file-path-wrapper(style='opacity: 0')
+              input.file-path.validate(type='text', placeholder='Upload walk pictures')
+        .row#img-preview-container
+
+        .row#validate-container
+          .col.s12
+            button.btn.btn-large.waves-effect.waves-light#submit(type="submit", name="action") Submit
+              i.material-icons.right send
+
+    script(src="/js/admin-edit-walk.js")

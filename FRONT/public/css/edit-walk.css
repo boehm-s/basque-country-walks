@@ -1,0 +1,103 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.sidenav-trigger {
+    color: #26a69a;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.preview-img-container {
+    transition: .4s;
+}
+.preview-img-container:hover img {
+    filter: grayscale(100%);
+    filter: blur(5px);
+    transition: .4s;
+}
+
+.preview-img-container:hover .del-preview-img {
+    opacity: 1;
+}
+
+.del-preview-img {
+    opacity: 0;
+    top: 72px;
+    left: calc(50% - 28px);
+    transition: .4s
+}
+
+#add-walk > h1 {
+    margin-bottom: 70px;
+}
+
+#submit {
+    margin-top: 50px;
+    width: 100%;
+}
+
+@media (max-width: 1260px) {
+    .container {
+	width: 85%;
+    }
+}
+
+@media (max-width: 800px) {
+    #panels-container {
+	width: 100%;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .parallax-container .section {
+	/* position: absolute; */
+	top: 40%;
+    }
+    #index-banner .section {
+	top: 10%;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+    #index-banner .section {
+	top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+}

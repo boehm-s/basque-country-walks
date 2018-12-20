@@ -34,9 +34,14 @@ const walkCardHTML = walk => `
 
 const deleteWalk = function(e) {
     console.log({e, a: this});
+    const card = e.parentNode.parentNode.parentNode;
     fetch(`${API_URL}/walks/${e.dataset.id}`, {
-	method: "DELETE",
-    }).then(o => o.json()).then(console.log);
+    	method: "DELETE",
+    }).then(o => o.json()).then(jsonRes => {
+	console.log(jsonRes);
+	card.remove();
+	return jsonRes;
+    });
 };
 
 document.addEventListener('DOMContentLoaded', e => {
