@@ -1,5 +1,9 @@
 const API_URL = 'http://localhost:3000';
 
+const id = _id => document.getElementById(_id);
+const tag = _tag => Array.from(document.getElementsByTagName(_tag));
+const cls = _cls => Array.from(document.getElementsByClassName(_cls));
+
 const fetchWalks = _ => new Promise(
     (resolve, reject) =>
 	fetch(`${API_URL}/walks`)
@@ -35,13 +39,17 @@ const walkCardHTML = walk => `
 const deleteWalk = function(e) {
     console.log({e, a: this});
     const card = e.parentNode.parentNode.parentNode;
-    fetch(`${API_URL}/walks/${e.dataset.id}`, {
-    	method: "DELETE",
-    }).then(o => o.json()).then(jsonRes => {
-	console.log(jsonRes);
-	card.remove();
-	return jsonRes;
-    });
+    const walkName = card.getElementsByClassName('card-title')[0].innerHTML;
+
+    if (window.confirm(`Are you sure you want to delete walk   "${walkName}"`)) {
+	fetch(`${API_URL}/walks/${e.dataset.id}`, {
+    	    method: "DELETE",
+	}).then(o => o.json()).then(jsonRes => {
+	    console.log(jsonRes);
+	    card.remove();
+	    return jsonRes;
+	});
+    }
 };
 
 document.addEventListener('DOMContentLoaded', e => {

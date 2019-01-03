@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import rimraf from 'rimraf';
 import multer from 'multer';
 import Walk from './../models/walks';
 
@@ -9,7 +10,7 @@ const PUBLIC_PATH = path.resolve(__dirname, '..', 'public');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-	const dest = path.resolve(PUBLIC_PATH, 'walks', req.walkName);
+	const dest = path.resolve(PUBLIC_PATH, 'walks', req.walkId);
 	cb(null, dest);
     },
     filename: function (req, file, cb) {
@@ -36,10 +37,9 @@ const create     = async (req, res, next) => {
 
 const preStorePictures = async (req, res, next) => {
     const walk = await Walk.findOne({_id: req.params.id});
-    const walkName = walk.name;
-    const pictureDir = './public/walks/' + walkName;
+    const pictureDir = './public/walks/' + req.params.id;
 
-    req.walkName = walkName;
+    req.walkId = req.params.id;
 
     if (!fs.existsSync(pictureDir)) {
 	await fsPromises.mkdir(pictureDir, { recursive: true });
@@ -66,7 +66,7 @@ const delPictures = async (req, res) => {
     });
     const updatedWalk = await Walk.findOne({_id: req.params.id});
 
-    const picturesPath = path.resolve(PUBLIC_PATH, 'walks', updatedWalk.name);
+    const picturesPath = path.resolve(PUBLIC_PATH, 'walks', req.params.id);
     const picturesList = fs.readdirSync(picturesPath).map(filename => path.resolve(picturesPath, filename));
     const picturesToRemove = picturesList.filter(path => !updatedWalk.pictures.some(_p => path.includes(_p)));
 
@@ -92,6 +92,13 @@ const updateById = async (req, res) => {
 
 const deleteById = async (req, res) => {
     const ret = await Walk.deleteBy({_id: req.params.id});
+    // delete associated pictures
+
+    const dirToRemove = path.resolve(PUBLIC_PATH, 'walks', req.params.id);
+
+    if (fs.existsSync(dirToRemove))
+	rimraf.sync(dirToRemove);
+
     return res.json(ret);
 };
 
