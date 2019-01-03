@@ -1,6 +1,6 @@
 const fbData = {
-    facebook_api_key      :     "1639639556137911",
-    facebook_api_secret   :     "635090d6f8f45146f56f5d44ab05ec2f",
+    facebook_api_key      :     process.env.FB_API_KEY || "1639639556137911",
+    facebook_api_secret   :     process.env.FB_API_SECRET,
     callback_url          :     "http://localhost:4000/auth/facebook/callback",
     use_database          :     "false",
     host                  :     "localhost",

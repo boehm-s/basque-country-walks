@@ -25,6 +25,4 @@ app.use(bodyParser({limit: '50mb'}));
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-
-
 export default app;
