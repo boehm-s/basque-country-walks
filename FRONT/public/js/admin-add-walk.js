@@ -63,7 +63,8 @@ const sendWalkObject = walkObject => new Promise((resolve, reject) => fetch(`${A
 	method: "POST",
 	headers: {
 	    'Accept': 'application/json',
-	    'Content-Type': 'application/json'
+	    'Content-Type': 'application/json',
+	    'Authorization': window.FB_ID
 	},
 	body: JSON.stringify(walkObject)
     }).then(o => o.json()).then(resolve)
@@ -95,8 +96,6 @@ const createWalk = e => {
 };
 
 window.addEventListener('DOMContentLoaded', e => {
-    console.log('admin-add-walk');
-
     document.getElementById('upload-images').addEventListener('change',  previewImages, false);
     document.getElementById('submit').onclick = createWalk;
 });

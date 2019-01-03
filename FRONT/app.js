@@ -87,7 +87,6 @@ app.use('/admin', ...requireAUTH);
 
 app.get('/admin',
 	(req, res) => {
-	    console.log(req.user);
 	    res.render('admin', {});
 	});
 
@@ -114,8 +113,13 @@ app.get('/auth/facebook/callback',
 	    failureRedirect: '/fail'
 	}),
 	function(req, res) {
-	    console.log(req.body);
-	    res.redirect('/admin');
+	    rp({
+		method: 'POST',
+		headers: {
+		    secret: require('./../secret')
+		},
+		uri: `${API_URL}/authorize-id/${req.user.id}`
+	    }).then(_ => res.redirect('/admin'));
 	});
 
 app.get('/logout', function(req, res){

@@ -46,6 +46,9 @@ const deleteWalk = function(e) {
     if (window.confirm(`Are you sure you want to delete walk   "${walkName}"`)) {
 	fetch(`${API_URL}/walks/${e.dataset.id}`, {
     	    method: "DELETE",
+	    headers: {
+		'Authorization': window.FB_ID
+	    }
 	}).then(o => o.json()).then(jsonRes => {
 	    console.log(jsonRes);
 	    card.remove();

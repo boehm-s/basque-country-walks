@@ -8,7 +8,21 @@ window.fbAsyncInit = function() {
 
     FB.AppEvents.logPageView();
     console.log("FB thing ...");
+
+    (function getFacebookUID() {
+	FB.getLoginStatus(function(response) {
+	    if (response.status === 'connected') {
+		console.log('got FB ID ... ');
+		window.FB_ID = response.authResponse.userID;
+	    } else {
+		setTimeout(function() {
+		    getFacebookUID();
+		}, 50);
+	    }
+	});
+    })();
 };
+
 
 (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];

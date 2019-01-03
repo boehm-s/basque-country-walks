@@ -127,7 +127,7 @@ const walkUpdateDiff = walkObj => new Promise((resolve, reject) => {
 		  return acc;
 	  }, {});
 
-    updateWalk.prices = {};
+    updateWalk.prices = originalWalk.prices;
 
     ['from', 'to', 'detail'].forEach(priceKey => {
 	if (originalWalk.prices && originalWalk.prices[priceKey] !== walkObj.prices[priceKey])
@@ -148,7 +148,8 @@ const sendWalkUpdate = walkUpdateObj => new Promise((resolve, reject) => fetch(`
     method: "PUT",
     headers: {
 	'Accept': 'application/json',
-	'Content-Type': 'application/json'
+	'Content-Type': 'application/json',
+	'Authorization': window.FB_ID
     },
     body: JSON.stringify({update: walkUpdateObj})
 }).then(o => o.json()).then(resolve)
@@ -161,7 +162,8 @@ const removeWalkImages = _ =>
 		  method: "PUT",
 		  headers: {
 		      'Accept': 'application/json',
-		      'Content-Type': 'application/json'
+		      'Content-Type': 'application/json',
+		      'Authorization': window.FB_ID
 		  },
 		  body: JSON.stringify({picsToRemove: filesToDelete})
 	      }).then(o => o.json()).then(resolve);
@@ -177,6 +179,9 @@ const sendWalkImages = _ => new Promise((resolve, reject) => {
 
     fetch(`${API_URL}/walks/add-pictures/${walkId}`, {
 	method: "POST",
+	headers: {
+	    'Authorization': window.FB_ID
+	},
 	body: fd
     }).then(resolve);
 });
@@ -198,7 +203,6 @@ const updateWalk = e => {
 };
 
 window.addEventListener('DOMContentLoaded', e => {
-    console.log('admin-EDIT-walk');
 
     fetchWalk(walkId)
 	.then(fillWalkData)

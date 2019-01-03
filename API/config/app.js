@@ -4,7 +4,6 @@ import bodyParser	from 'body-parser';
 import logger		from 'morgan';
 import cookieParser	from 'cookie-parser';
 import path		from 'path';
-import fbConfig         from './fb';
 
 const app              = express();
 
