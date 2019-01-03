@@ -1,5 +1,5 @@
-//const API_URL = 'http://localhost:3000';
-const API_URL = 'http://steven-boehm.cloudapp.net:3000';
+const API_URL = 'http://localhost:3000';
+//const API_URL = 'http://steven-boehm.cloudapp.net:3000';
 
 var fileArray = [];
 var filesToDelete = [];
@@ -191,7 +191,9 @@ const updateWalk = e => {
 	.then(sendWalkUpdate)
 	.then(removeWalkImages)
 	.then(sendWalkImages)
-	.then(console.log)
+	.then(_ => {
+	    window.location.href = '/admin';
+	})
 	.catch(console.error);
 };
 
