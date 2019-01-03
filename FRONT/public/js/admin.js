@@ -29,6 +29,7 @@ const walkCardHTML = walk => `
               <p>${walk.description}</p>
             </div>
             <div class="card-action">
+              <a href="/walks/${walk._id}" class="blue-text"> VIEW </a>
               <a href="/admin/edit-walk/${walk._id}"> EDIT </a>
               <a href="#" onclick="deleteWalk(this)" data-id="${walk._id}" class="red-text"> DELETE </a>
             </div>

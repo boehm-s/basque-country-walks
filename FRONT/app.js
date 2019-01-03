@@ -1,10 +1,12 @@
 const path       = require('path');
 const http       = require('http');
+const rp         = require('request-promise');
 const express    = require('express');
 const bodyParser = require('body-parser');
 
 const app        = express();
 const server     = http.createServer(app);
+const API_URL    = process.env.API_URL || 'http://localhost:3000';
 const port       = process.env.PORT || process.env.port || 3000;
 
 app.use((req, res, next) => {
@@ -21,6 +23,16 @@ app.set('view engine', 'pug');
 app.get('/',        (req, res) => {
     res.render('index', {});
 });
+
+app.get('/walks/:id',        (req, res) => {
+    rp(`${API_URL}/walks/${req.params.id}`)
+	.then(_walk => {
+	    const walk = JSON.parse(_walk);
+	    console.log(walk);
+	    res.render('walk-view', walk);
+	});
+});
+
 
 app.get('/admin',        (req, res) => {
     res.render('admin', {});

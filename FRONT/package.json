@@ -1,34 +1,36 @@
 {
-    "name": "basque-country-walks",
-    "version": "1.0.0",
-    "description": "basque country walk website",
-    "main": "app.js",
-    "scripts": {
-	"dev": "./node_modules/.bin/nodemon app.js",
-	"test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-	"type": "git",
-	"url": "git+https://github.com/boehm-s/basque-country-walks.git"
-    },
-    "keywords": [
-	"basque",
-	"walks",
-	"trekking",
-	"basque",
-	"country",
-	"basque",
-	"trek"
-    ],
-    "author": "Steven BOEHM",
-    "license": "MIT",
-    "bugs": {
-	"url": "https://github.com/boehm-s/basque-country-walks/issues"
-    },
-    "homepage": "https://github.com/boehm-s/basque-country-walks#readme",
-    "dependencies": {
-	"express": "^4.16.4",
-	"nodemon": "^1.18.8",
-	"pug": "^2.0.3"
-    }
+   "name": "basque-country-walks",
+   "version": "1.0.0",
+   "description": "basque country walk website",
+   "main": "app.js",
+   "scripts": {
+      "dev": "./node_modules/.bin/nodemon app.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/boehm-s/basque-country-walks.git"
+   },
+   "keywords": [
+      "basque",
+      "walks",
+      "trekking",
+      "basque",
+      "country",
+      "basque",
+      "trek"
+   ],
+   "author": "Steven BOEHM",
+   "license": "MIT",
+   "bugs": {
+      "url": "https://github.com/boehm-s/basque-country-walks/issues"
+   },
+   "homepage": "https://github.com/boehm-s/basque-country-walks#readme",
+   "dependencies": {
+      "express": "^4.16.4",
+      "nodemon": "^1.18.8",
+      "pug": "^2.0.3",
+      "request": "^2.88.0",
+      "request-promise": "^4.2.2"
+   }
 }
