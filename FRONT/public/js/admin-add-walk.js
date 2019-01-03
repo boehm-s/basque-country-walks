@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3000';
+//const API_URL = 'http://localhost:3000';
+const API_URL = 'http://steven-boehm.cloudapp.net:3000';
+
 var fileArray = [];
 const id = _id => document.getElementById(_id);
 
