@@ -1,5 +1,5 @@
-//const API_URL = 'http://localhost:3000';
-const API_URL = 'http://steven-boehm.cloudapp.net:3000';
+const API_URL = 'http://localhost:3000';
+//const API_URL = 'http://steven-boehm.cloudapp.net:3000';
 
 const id = _id => document.getElementById(_id);
 const tag = _tag => Array.from(document.getElementsByTagName(_tag));
@@ -14,10 +14,10 @@ const fetchWalks = _ => new Promise(
 );
 
 const walkCardHTML = walk => `
-        <div class="col s12 m6 l4 xl3">
+        <div class="col m12 l6 xl4">
           <div class="card">
             <div class="card-image">
-              <img src="${API_URL}/${walk.pictures[0] ? walk.pictures[0] : 'no-image.png'}">
+              <div class="img-div" style="background: url(${API_URL}/${walk.pictures[0] ? walk.pictures[0] : 'no-image.png'}) no-repeat center center; background-size: cover"> </div>
               <span class="card-title">${walk.name}</span>
             </div>
             <div class="card-content icon-details-container">
@@ -27,7 +27,7 @@ const walkCardHTML = walk => `
 
             </div>
             <div class="card-content">
-              <p>${walk.description}</p>
+              <p>${walk.summary}</p>
             </div>
             <div class="card-action">
               <a href="/walks/${walk._id}" class="blue-text"> VIEW </a>
