@@ -38,6 +38,7 @@ const walkCardHTML = walk => `
         </div>
 `;
 
+
 const deleteWalk = function(e) {
     console.log({e, a: this});
     const card = e.parentNode.parentNode.parentNode;

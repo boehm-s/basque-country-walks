@@ -17,6 +17,7 @@ const port             = process.env.PORT || process.env.port || 3000;
 
 const AUTHORIZED_PEOPLE = ['Steven Boehm', 'Philip Cooper'];
 
+
 // Use the FacebookStrategy within Passport.
 passport.use(new FacebookStrategy({
     clientID: fbConfig.facebook_api_key,
