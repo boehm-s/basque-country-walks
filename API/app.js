@@ -12,10 +12,10 @@ global.AUTHORIZED_IDS = [];
 
 app.post('/authorize-id/:id', (req, res) => {
     if (req.headers.secret === require('./../secret')) {
-	global.AUTHORIZED_IDS.push(req.params.id);
-	res.json({success: true});
+	    global.AUTHORIZED_IDS.push(req.params.id);
+	    res.json({success: true});
     } else {
-	res.status(401).json({success: true});
+	    res.status(401).json({success: true});
     }
 });
 

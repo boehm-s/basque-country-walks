@@ -13,6 +13,8 @@ const walkSchema = mongoose.Schema({
     },
     summary: String,
     description: String,
+    distance: Number,
+    altitude: Number,
     days: Number,
     nights: Number,
     difficulty: Number,

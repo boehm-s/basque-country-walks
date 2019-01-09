@@ -10,11 +10,11 @@ const PUBLIC_PATH = path.resolve(__dirname, '..', 'public');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-	const dest = path.resolve(PUBLIC_PATH, 'walks', req.walkId);
-	cb(null, dest);
+	    const dest = path.resolve(PUBLIC_PATH, 'walks', req.walkId);
+	    cb(null, dest);
     },
     filename: function (req, file, cb) {
-	cb(null, file.originalname);
+	    cb(null, file.originalname);
     }
 });
 const upload = multer({ storage });
@@ -22,14 +22,14 @@ const storePictures = upload.array('walkImages');
 
 const create     = async (req, res, next) => {
     try {
-	console.log(req.body);
-	const _walk = new Walk(req.body);
-	var walk = await _walk.save();
+	    console.log(req.body);
+	    const _walk = new Walk(req.body);
+	    var walk = await _walk.save();
     } catch (e) {
-	if (e.code == 11000) { // dpulicate key error
-	    res.status(409).end("A walk with this name already exists");
-	}
-	next(e);
+	    if (e.code == 11000) { // dpulicate key error
+	        res.status(409).end("A walk with this name already exists");
+	    }
+	    next(e);
     }
 
     return res.json(walk);
@@ -42,7 +42,7 @@ const preStorePictures = async (req, res, next) => {
     req.walkId = req.params.id;
 
     if (!fs.existsSync(pictureDir)) {
-	await fsPromises.mkdir(pictureDir, { recursive: true });
+	    await fsPromises.mkdir(pictureDir, { recursive: true });
     }
 
     next();
@@ -51,7 +51,7 @@ const preStorePictures = async (req, res, next) => {
 const postStorePictures = async (req, res, next) => {
     const picturesArrayPath = req.files.map(file => file.path.split('API/public')[1]);
     const updateWalk = await Walk.update({_id: req.params.id }, {
-	$addToSet: { pictures: { $each: picturesArrayPath } }
+	    $addToSet: { pictures: { $each: picturesArrayPath } }
     });
 
     const updatedWalk = await Walk.findOne({_id: req.params.id});
@@ -62,7 +62,7 @@ const postStorePictures = async (req, res, next) => {
 
 const delPictures = async (req, res) => {
     const updateWalk = await Walk.update({_id: req.params.id }, {
-	$pull: { pictures: { $in: req.body.picsToRemove } }
+	    $pull: { pictures: { $in: req.body.picsToRemove } }
     });
     const updatedWalk = await Walk.findOne({_id: req.params.id});
 
@@ -97,7 +97,7 @@ const deleteById = async (req, res) => {
     const dirToRemove = path.resolve(PUBLIC_PATH, 'walks', req.params.id);
 
     if (fs.existsSync(dirToRemove))
-	rimraf.sync(dirToRemove);
+	    rimraf.sync(dirToRemove);
 
     return res.json(ret);
 };
