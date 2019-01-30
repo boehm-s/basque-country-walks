@@ -70,6 +70,11 @@ app.get('/walks/:id',        (req, res) => {
 	.then(_walk => {
 	    const walk = JSON.parse(_walk);
 	    console.log(walk);
+        walk.description = walk.description
+            .replace(/\n/g, '<br/>');
+
+        console.log(walk.description);
+
 	    res.render('walk-view', walk);
 	});
 });

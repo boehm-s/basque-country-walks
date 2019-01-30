@@ -21,27 +21,47 @@ html
             .main-carousel
               each img_url in pictures
                 .carousel-cell(style='background: url(http://localhost:3000' + img_url + ') no-repeat center center')
-          .row
+          .row#trek-detail-title
             .col.s12
               h3 Trek details
           .row#trek-details
-            .col.s3 Duration (days / nights)
-            .col.s3
+            .col.s3 Duration (days / nights) :
+            .col.s2.tar
               span=days
               span &nbsp;/ &nbsp;
               span=nights
-            .col.s3 Difficulty
-            .col.s3
+            .col.s3.offset-s1 Difficulty :
+            .col.s2.tar
               span=difficulty
               span &nbsp;/ 5
-            .col.s3 Distance
-            .col.s3
+            .col.s3 Distance :
+            .col.s2.tar
               span ???
               span km
-            .col.s3 Altitude gain
-            .col.s3
+            .col.s3.offset-s1 Altitude gain :
+            .col.s2.tar
               span ???
               span m
+          .row#trek-description-container
+            .col.s8.left-part
+              .row#trek-summary
+                .col-s12
+                  h3 Summary
+                .col-s12
+                  p !{summary}
+              .row#trek-description
+                .col.s12
+                  h3 Route description, clothing and material
+                .col.s12
+                  p !{description}
+            .col.s4.right-part
+              .row#the-book
+                .col.s12
+                  img#book-img(src='/img/basque-country-book.jpg', alt='basque country walks, the book')
+                .col.s12
+                  button.btn.waves-effect.waves-light Get the book
+                    i.material-icons.right send
+              .row#other-walks
 
 
   include includes/footer.pug

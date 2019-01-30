@@ -6,6 +6,85 @@
 }
 
 
+.tar {
+    text-align: right;
+}
+
+body > nav {
+    border-bottom: 1px solid #000;
+
+}
+
+#index-banner {
+    background: #FFF;
+    color: #000;
+    padding-top: 50px;
+}
+
 h1 {
     margin: 0 !important;
+    font-size: 2em;
+    margin-bottom: 40px !important;
+}
+
+#trek-detail-title {
+    margin-bottom: 0;
+}
+
+#trek-details > div {
+    height: 40px;
+    line-height: 40px;
+}
+
+#trek-details {
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #DDD;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 50px;
+}
+
+#trek-detail-title {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#trek-detail-title h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+#trek-summary h3,
+#trek-description h3 {
+    font-size: 1.5em;
+
+}
+
+#trek-description > .col {
+    padding: 0;
+}
+
+#trek-description-container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+#trek-description-container .right-part {
+    background: blue;
+}
+
+#the-book {
+    height: 300px;
+    max-height: 400px;
+}
+
+#book-img {
+    height: 100%;
+}
+
+#book-img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    width: auto;
 }

@@ -31,6 +31,8 @@ const fillWalkData = walkData => new Promise(
 	    ['walk-difficulty',   walkData.difficulty],
 	    ['walk-nights',       walkData.nights],
 	    ['walk-days',         walkData.days],
+	    ['walk-altitude',     walkData.altitude],
+	    ['walk-distance',     walkData.distance],
 	].forEach(assoc => {
 	    if (assoc[1]) id(assoc[0]).value = assoc[1];
 	});
@@ -107,15 +109,17 @@ const previewImages = function() {
 const buildWalkObject = _ => Promise.resolve({
     name: id('walk-title').value,
     prices: {
-	from: parseInt(id('walk-price-from').value),
-	to: parseInt(id('walk-price-to').value),
-	detail: id('walk-price-detail').value
+	    from: parseInt(id('walk-price-from').value),
+	    to: parseInt(id('walk-price-to').value),
+	    detail: id('walk-price-detail').value
     },
     summary: id('walk-summary').value,
     description: id('walk-description').value,
     days: parseInt(id('walk-days').value),
     nights: parseInt(id('walk-nights').value),
     difficulty: parseInt(id('walk-difficulty').value),
+    distance: parseInt(id('walk-distance').value),
+    altitude: parseInt(id('walk-altitude').value)
 });
 
 const walkUpdateDiff = walkObj => new Promise((resolve, reject) => {
