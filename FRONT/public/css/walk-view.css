@@ -70,21 +70,47 @@ h1 {
     flex-flow: row wrap;
 }
 #trek-description-container .right-part {
-    background: blue;
+    padding: 0 3%;
+    /* background: blue; */
 }
 
-#the-book {
-    height: 300px;
+#the-book,
+#other-walk {
+    height: 400px;
     max-height: 400px;
+    margin-top: 40px;
 }
 
-#book-img {
+#other-walk > div,
+#the-book > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#other-walk-img-container,
+#book-img-container {
+    height: calc(100% - 40px);
+    padding: 0;
+}
+
+#button-other-walk-container,
+#button-book-container {
+    height: 40px;
+    padding: 0;
+}
+
+#button-other-walk-container > a,
+#button-book-container > a {
+    width: 100%;
     height: 100%;
 }
 
+
+#other-walk-img,
 #book-img {
-    max-height: 100%;
-    max-width: 100%;
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-size: cover !important;
 }

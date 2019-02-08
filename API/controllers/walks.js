@@ -85,6 +85,13 @@ const getById    = async (req, res) => {
     return res.json(ret);
 };
 
+const getOtherThan = async (req, res) => {
+    const rets = await Walk.find({_id: {$ne: req.params.id} });
+    const ret = rets[Math.floor(Math.random() * rets.length)];
+
+    return res.json(ret);
+};
+
 const updateById = async (req, res) => {
     const ret = await Walk.updateById(req.params.id, req.body.update);
     return res.json(ret);
@@ -110,6 +117,7 @@ export default {
     delPictures,
     getAll,
     getById,
+    getOtherThan,
     updateById,
     deleteById
 };

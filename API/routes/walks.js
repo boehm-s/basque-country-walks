@@ -36,5 +36,11 @@ walksRouter.route('/del-pictures/:id')
 	walksCtrl.delPictures
     );
 
+walksRouter.route('/getOtherThan/:id')
+    .get(
+	    walksCtrl.getOtherThan
+    );
+
+
 export {walksRouter};
 export default walksRouter;

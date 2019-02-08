@@ -65,19 +65,36 @@ app.get('/',        (req, res) => {
     res.render('index', {});
 });
 
-app.get('/walks/:id',        (req, res) => {
-    rp(`${API_URL}/walks/${req.params.id}`)
-	.then(_walk => {
-	    const walk = JSON.parse(_walk);
-	    console.log(walk);
+const renderWalk = (req, res) => {
+    const getWalk = id => rp(`${API_URL}/walks/${id}`);
+    const getOtherWalk = id => rp(`${API_URL}/walks/getOtherThan/${id}`);
+    const parseWalk = walkString => {
+	    const walk = JSON.parse(walkString);
         walk.description = walk.description
             .replace(/\n/g, '<br/>');
 
-        console.log(walk.description);
+        walk.bookHref = 'https://www.amazon.com/Basque-Country-Spain-France-Landscapes/dp/1856914852';
+        return Promise.resolve(walk);
+    };
+    const addOtherWalk = walk => new Promise((resolve, reject) => {
+        const otherWalk = getOtherWalk(walk._id).then(parseWalk);
+        return otherWalk.then(otherWalk => {
+            walk.otherWalk = otherWalk;
+            walk.otherWalkHref = `/walks/${otherWalk._id}`;
+            walk.otherWalkImg = `http://localhost:3000/${otherWalk.pictures[0]}`;
+            resolve(walk);
+        });
+    });
 
-	    res.render('walk-view', walk);
-	});
-});
+    getWalk(req.params.id)
+        .then(parseWalk)
+        .then(addOtherWalk)
+        .then(walk => {
+            res.render('walk-view', walk);
+        });
+};
+
+app.get('/walks/:id', renderWalk);
 
 
 app.get('/login', (req, res) => res.redirect('/auth/facebook'));
@@ -88,6 +105,10 @@ const requireAUTH = [
 	? next()
 	: res.redirect('/')
 ];
+
+app.use('/guided-walks', (req, res) => {
+	res.render('guided-walks', {});
+});
 
 app.use('/admin', ...requireAUTH);
 

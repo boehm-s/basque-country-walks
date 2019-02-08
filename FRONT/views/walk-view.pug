@@ -55,13 +55,19 @@ html
                 .col.s12
                   p !{description}
             .col.s4.right-part
-              .row#the-book
-                .col.s12
-                  img#book-img(src='/img/basque-country-book.jpg', alt='basque country walks, the book')
-                .col.s12
-                  button.btn.waves-effect.waves-light Get the book
+              .row.hoverable#the-book
+                .col.s12#book-img-container
+                  #book-img(style='background: url("/img/basque-country-book.jpg") no-repeat center center;')
+                .col.s12#button-book-container
+                  a.btn.waves-effect.waves-light(href=bookHref, target='_blank') Get the book
                     i.material-icons.right send
-              .row#other-walks
+              .row.hoverable#other-walk
+                .col.s12#other-walk-img-container
+                  #other-walk-img(style='background: url("' + otherWalkImg + '") no-repeat center center;')
+                .col.s12#button-other-walk-container
+                  a.btn.waves-effect.waves-light(href=otherWalkHref) Discover another walk
+                    i.material-icons.right send
+
 
 
   include includes/footer.pug
