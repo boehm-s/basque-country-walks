@@ -79,6 +79,9 @@ const sendWalkImages = walk => new Promise((resolve, reject) => {
 
     fetch(`${API_URL}/walks/add-pictures/${walk._id}`, {
 	    method: "POST",
+	    headers: {
+	        'Authorization': window.FB_ID
+	    },
 	    body: fd
     }).then(resolve);
 });
