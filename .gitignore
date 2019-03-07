@@ -62,3 +62,6 @@ typings/
 
 # TERN emacs js autocomplete
 .tern-port
+
+#PM2 conf file
+*pm2-basque-app.json*
