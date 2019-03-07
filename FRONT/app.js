@@ -96,7 +96,6 @@ const renderWalk = (req, res) => {
 
 app.get('/walks/:id', renderWalk);
 
-
 app.get('/login', (req, res) => res.redirect('/auth/facebook'));
 
 const requireAUTH = [
