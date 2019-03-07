@@ -2,6 +2,13 @@ doctype html
 html
   head
     title Basque Country Walks
+    script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-135760345-1")
+    script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-135760345-1');
+
     link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", rel="stylesheet")
     script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
@@ -53,7 +60,7 @@ html
               p.light
                 | I arrange a variety of guided day walks both within the Baztan-Bidasoa region covered under the self-guided walks section and in other parts of the Basque Country. These walks are geared to visitors who would like to get a taste of the landscapes and villages in the region ...
                 br
-                a.read-more(href="#guided-walks") See the guided walks
+                a.read-more(href="/guided-walks") See the guided walks
           .col.s12.m4.panels
             .icon-block
               h2.center.brown-text

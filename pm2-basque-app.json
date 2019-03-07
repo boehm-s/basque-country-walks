@@ -3,14 +3,14 @@
 	{
 	    "name": "basque-country-walks-API",
 	    "script": "app.js",
-	    "cwd": "/home/boehm_s/basque-country-walks/API",
-	    "exec_interpreter": "/usr/bin/babel-node"
+	    "cwd": "/home/boehm_s/Documents/basque-country-walks/API",
+	    "exec_interpreter": "/usr/local/bin/babel-node"
 	},
 	{
 	    "script": "app.js",
 	    "name": "basque-country-walks",
-	    "cwd": "/home/boehm_s/basque-country-walks/FRONT",
-	    "exec_interpreter": "/usr/bin/babel-node",
+	    "cwd": "/home/boehm_s/Documents/basque-country-walks/FRONT",
+	    "exec_interpreter": "/usr/local/bin/babel-node",
 	    "env": {
 		"PORT": 4000,
 		"FB_API_SECRET": "635090d6f8f45146f56f5d44ab05ec2f"
