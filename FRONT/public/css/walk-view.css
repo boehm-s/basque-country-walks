@@ -6,8 +6,14 @@
 }
 
 
+.tdt {
+    text-transform: uppercase;
+    color: #555;
+}
+
 .tar {
-    text-align: right;
+    text-align: left;
+    font-weight: 700;;
 }
 
 body > nav {
@@ -31,22 +37,54 @@ h1 {
     margin-bottom: 0;
 }
 
+#trek-details-container {
+    display: flex;
+    border-right: 2px solid #26a69a; /*weird cheat*/
+}
+
+#price-part {
+    font-weight: 600;
+    background: #26a69a;
+    color: #FFF;
+}
+
+#price-part > h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#trek-detail-title {
+    margin: 0;
+    padding: 10px 0;
+    text-align: left;
+    background: #555;
+    color: #DDD;
+}
+
+#trek-detail-title h3 {
+    margin: 0;
+    text-align: left;
+}
+
 #trek-details > div {
     height: 40px;
     line-height: 40px;
 }
 
 #trek-details {
-    border-bottom: 1px solid #DDD;
-    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #555;
+    border-left: 1px solid #550;
     padding-bottom: 5px;
     padding-top: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 
 #trek-detail-title {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 #trek-detail-title h3 {

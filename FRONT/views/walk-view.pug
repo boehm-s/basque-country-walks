@@ -7,7 +7,9 @@ html
     script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
     script(src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js")
+    script(src="/js/pignose.calendar.min.js")
     link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    link(href="/css/pignose.calendar.min.css", rel="stylesheet")
     link(href="/css/style.css", rel="stylesheet")
     link(href="/css/walk-view.css", rel="stylesheet")
 
@@ -29,24 +31,24 @@ html
           .row#trek-details-container
             .col.s10
               .row#trek-details
-                .col.s3 Duration (days / nights) :
+                .col.s3.tdt Duration (days / nights) :
                 .col.s2.tar
                   span=days
                   span &nbsp;/ &nbsp;
                   span=nights
-                .col.s3.offset-s1 Difficulty :
+                .col.s3.offset-s1.tdt Difficulty :
                 .col.s2.tar
                   span=difficulty
                   span &nbsp;/ 5
-                .col.s3 Distance :
+                .col.s3.tdt Distance :
                 .col.s2.tar
                   span=distance
                   span km
-                .col.s3.offset-s1 Altitude gain :
+                .col.s3.offset-s1.tdt Altitude gain :
                 .col.s2.tar
                   span=altitude
                   span m
-            .col.s2
+            .col.s2#price-part
               h4 From #{prices.from}€
 
           .row#trek-description-container
@@ -62,12 +64,25 @@ html
                 .col.s12
                   p !{description}
             .col.s4.right-part
-              .row.hoverable#the-book
-                .col.s12#book-img-container
-                  #book-img(style='background: url("/img/basque-country-book.jpg") no-repeat center center;')
-                .col.s12#button-book-container
-                  a.btn.waves-effect.waves-light(href=bookHref, target='_blank') Get the book
-                    i.material-icons.right send
+              .row.hoverable#booking-card
+                .col.s12
+                  h4 Book here !
+                form.col.s12
+                  .row
+                    .input-field.col.s6
+                      input.validate#client-first-name(type="text", placeholder="First Name")
+                      label(for="client-first-name") First Name
+                    .input-field.col.s6
+                      input.validate#client-last-name(type="text", placeholder="Last Name")
+                      label(for="client-last-name") Last Name
+                    .input-field.col.s12
+                      input.validate#client-email(type="email", placeholder="E-mail")
+                      label(for="client-email") E-mail
+                    .input-field.col.s12
+                      input#booking-datepicker.datepicker(type="text")
+                      label(for="booking-datepicker") Booking dates
+                    a.waves-effect.waves-light.btn Ask for reservation
+                      i.material-icons.right send
               .row.hoverable#other-walk
                 .col.s12#other-walk-img-container
                   #other-walk-img(style='background: url("' + otherWalkImg + '") no-repeat center center;')
